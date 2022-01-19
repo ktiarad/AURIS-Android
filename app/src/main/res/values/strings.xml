@@ -22,4 +22,13 @@
     <string name="btn_processing_start">START</string>
     <string name="btn_processing_stop">STOP</string>
     <string name="camera_caution">Please click start button to start detections</string>
+    <string name="tv_about_descop">Auris 1.1<br/>&#169;2021 Auris Team<br/><br/>
+        This application was developed during <br/>Capstone Project Bangkit, Kampus Merdeka 2021.<br/><br/>
+    Developers :<br/>
+    1. Juan Antonius Kusjadi<br/>
+    2. Tiara Dewangga <br/>
+    3. Evandio Martin <br/>
+    4. Ayulia Putri Aisyah<br/>
+    5. Alexander<br/>
+    6. Fransiskus Xaverius Narautama</string>
 </resources>
