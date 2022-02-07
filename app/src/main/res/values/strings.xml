@@ -10,8 +10,17 @@
     <string name="start">Start</string>
     <string name="alphabet">Alphabet</string>
     <string name="numbers">Numbers</string>
+    <string name="pronoun">Pronouns</string>
+    <string name="interrogative">Interrogative Words</string>
+    <string name="expression">Expressions</string>
+    <string name="day">Days</string>
+    <string name="month">Months</string>
+    <string name="verb">Verbs</string>
+    <string name="noun">Nouns</string>
     <string name="dummy">A</string>
     <string name="image">Image</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <string name="learn">Learn Sign Language</string>
     <string name="title_dictionary">Dictionary</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -22,13 +31,127 @@
     <string name="btn_processing_start">START</string>
     <string name="btn_processing_stop">STOP</string>
     <string name="camera_caution">Please click start button to start detections</string>
-    <string name="tv_about_descop">Auris 1.1<br/>&#169;2021 Auris Team<br/><br/>
-        This application was developed during <br/>Capstone Project Bangkit, Kampus Merdeka 2021.<br/><br/>
-    Developers :<br/>
-    1. Juan Antonius Kusjadi<br/>
-    2. Tiara Dewangga <br/>
-    3. Evandio Martin <br/>
-    4. Ayulia Putri Aisyah<br/>
-    5. Alexander<br/>
+    <string name="tv_about_descop">Auris 1.1<br />&#169;2021 Auris Team<br /><br />
+        This application was developed during <br />Capstone Project Bangkit, Kampus Merdeka 2021.<br /><br />
+    Developers :<br />
+    1. Juan Antonius Kusjadi<br />
+    2. Tiara Dewangga <br />
+    3. Evandio Martin <br />
+    4. Ayulia Putri Aisyah<br />
+    5. Alexander<br />
     6. Fransiskus Xaverius Narautama</string>
+    <string name="what">WHAT</string>
+    <string name="who">WHO</string>
+    <string name="howmuch">HOW MUCH/MANY</string>
+    <string name="where">WHERE</string>
+    <string name="why">WHY</string>
+    <string name="how">HOW</string>
+    <string name="when_word">WHEN</string>
+    <string name="family">FAMILY</string>
+    <string name="father">FATHER</string>
+    <string name="mother">MOTHER</string>
+    <string name="older">OLDER SIBLING</string>
+    <string name="younger">YOUNGER SIBLING</string>
+    <string name="grandfather">GRANDFATHER</string>
+    <string name="grandmother">GRANDMOTHER</string>
+    <string name="uncle">UNCLE</string>
+    <string name="aunt">AUNT</string>
+    <string name="happy">HAPPY</string>
+    <string name="sad">SAD</string>
+    <string name="angry">ANGRY</string>
+    <string name="tired">TIRED</string>
+    <string name="monday">MONDAY</string>
+    <string name="tuesday">TUESDAY</string>
+    <string name="wednesday">WEDNESDAY</string>
+    <string name="thursday">THURSDAY</string>
+    <string name="friday">FRIDAY</string>
+    <string name="saturday">SATURDAY</string>
+    <string name="sunday">SUNDAY</string>
+    <string name="jan">JANUARY</string>
+    <string name="feb">FEBRUARY</string>
+    <string name="mar">MARCH</string>
+    <string name="apr">APRIL</string>
+    <string name="may">MAY</string>
+    <string name="jun">JUNE</string>
+    <string name="jul">JULY</string>
+    <string name="aug">AUGUST</string>
+    <string name="sep">SEPTEMBER</string>
+    <string name="oct">OCTOBER</string>
+    <string name="nov">NOVEMBER</string>
+    <string name="dec">DECEMBER</string>
+    <string name="i_word">I</string>
+    <string name="you">YOU</string>
+    <string name="we">WE (without opponent)</string>
+    <string name="we2">WE (with opponent)</string>
+    <string name="youall">YOU ALL</string>
+    <string name="heshe">HE/SHE</string>
+    <string name="they">THEY</string>
+    <string name="this_word">THIS</string>
+    <string name="that_word">THAT</string>
+    <string name="studying">STUDYING</string>
+    <string name="reading">READING</string>
+    <string name="writing">WRITING</string>
+    <string name="working">WORKING</string>
+    <string name="eating">EATING</string>
+    <string name="drinking">DRINKING</string>
+    <string name="takebath">TAKE A BATH</string>
+    <string name="sleeping">SLEEPING</string>
+    <string name="looking">LOOKING</string>
+    <string name="listening">LISTENING</string>
+    <string name="talking">TALKING</string>
+    <string name="walking">WALKING</string>
+    <string name="thinking">THINKING</string>
+    <string name="table">TABLE</string>
+    <string name="chair">CHAIR</string>
+    <string name="book">BOOK</string>
+    <string name="pencil">PENCIL</string>
+    <string name="clothes">CLOTHES</string>
+    <string name="language">Language</string>
+    <string name="language_selected">English</string>
+    <string name="indonesia">Bahasa Indonesia</string>
+    <string name="english">English</string>
+    <string name="pick_language">Choose Language</string>
+    <string name="letter_A">A</string>
+    <string name="letter_B">B</string>
+    <string name="letter_C">C</string>
+    <string name="letter_D">D</string>
+    <string name="letter_E">E</string>
+    <string name="letter_F">F</string>
+    <string name="letter_G">G</string>
+    <string name="letter_H">H</string>
+    <string name="letter_I">I</string>
+    <string name="letter_J">J</string>
+    <string name="letter_K">K</string>
+    <string name="letter_L">L</string>
+    <string name="letter_M">M</string>
+    <string name="letter_N">N</string>
+    <string name="letter_O">O</string>
+    <string name="letter_P">P</string>
+    <string name="letter_Q">Q</string>
+    <string name="letter_R">R</string>
+    <string name="letter_S">S</string>
+    <string name="letter_T">T</string>
+    <string name="letter_U">U</string>
+    <string name="letter_V">V</string>
+    <string name="letter_W">W</string>
+    <string name="letter_X">X</string>
+    <string name="letter_Y">Y</string>
+    <string name="letter_Z">Z</string>
+    <string name="number_0">0</string>
+    <string name="number_1">1</string>
+    <string name="number_2">2</string>
+    <string name="number_3">3</string>
+    <string name="number_4">4</string>
+    <string name="number_5">5</string>
+    <string name="number_6">6</string>
+    <string name="number_7">7</string>
+    <string name="number_8">8</string>
+    <string name="number_9">9</string>
+    <string name="number_10">10</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+
+
+    <!-- DICTIONARIES -->
+
 </resources>

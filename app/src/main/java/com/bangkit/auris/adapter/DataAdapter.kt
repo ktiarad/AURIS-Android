@@ -1,17 +1,21 @@
 package com.bangkit.auris.adapter
 
+import android.provider.Settings.Global.getString
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bangkit.auris.R
 import com.bangkit.auris.utils.DataDictionary
 import com.bumptech.glide.Glide
 import com.bangkit.auris.databinding.ItemDictionaryBinding
+import com.bangkit.auris.utils.DataDictionaries
 
 class DataAdapter : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
 
-    private var listDataLibrary = ArrayList<DataDictionary>()
+    private var listDataLibrary = mutableListOf<DataDictionary>() // MutableList<DataDictionary>()
 
-    fun setDataLibrary(dictionary: List<DataDictionary>?){
+    fun setDataLibrary(dictionary: MutableList<DataDictionary>){
         if (dictionary == null) return
         this.listDataLibrary.clear()
         this.listDataLibrary.addAll(dictionary)
@@ -32,11 +36,13 @@ class DataAdapter : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: ItemDictionaryBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(dictionary: DataDictionary){
+            Log.d("menu", "binding here")
             with(binding){
                 tvTitle.text = dictionary.title
                 Glide.with(itemView.context)
                     .load(dictionary.image)
                     .into(ivLibrary)
+
             }
         }
 

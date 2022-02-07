@@ -1,17 +1,24 @@
 package com.bangkit.auris
 
+import android.content.res.Resources
 import android.graphics.*
 import android.graphics.Bitmap.Config
 import android.graphics.Paint.Style
 import android.media.ImageReader.OnImageAvailableListener
+import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
+import android.util.Log
 import android.util.Size
 import android.util.TypedValue
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.CompoundButton
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -27,20 +34,30 @@ import com.bangkit.auris.tflite.TFLiteObjectDetectionAPIModel
 import com.bangkit.auris.tracking.MultiBoxTracker
 import com.bangkit.auris.viewmodel.PageViewModel
 import com.bangkit.auris.viewmodel.ViewModelFactory
-import com.bangkit.auris.R
 import com.bangkit.auris.databinding.ActivityMainBinding
+import com.bangkit.auris.databinding.HeaderNavBinding
+import com.bangkit.auris.fragment.AboutFragment
+import com.bangkit.auris.fragment.SettingsFragment
+import com.google.android.material.navigation.NavigationView
 import java.io.IOException
 import java.util.*
 
-class MainActivity : CameraActivity(), OnImageAvailableListener {
+class MainActivity : CameraActivity(), OnImageAvailableListener,
+    NavigationView.OnNavigationItemSelectedListener {
     // Binding
     private lateinit var binding: ActivityMainBinding
     private lateinit var activeFragment: Fragment
-    //viewModel
+    // viewModel
     private lateinit var pageViewModel: PageViewModel
-    //fragments
+    // fragments
     private lateinit var homeFragment: HomeFragment
     private lateinit var dictionaryFragment: DictionaryFragment
+    private lateinit var listDictionaryFragment: ListDictionaryFragment
+    private lateinit var aboutFragment: AboutFragment
+    private lateinit var settingsFragment: SettingsFragment
+    // navDrawer
+    private lateinit var mDrawerToggle : ActionBarDrawerToggle
+    private lateinit var mDrawerLayout : HeaderNavBinding
 
     private lateinit var trackingOverlay: OverlayView
     private var sensorOrientation: Int? = null
@@ -74,14 +91,31 @@ class MainActivity : CameraActivity(), OnImageAvailableListener {
 
         //Initiate Fragments
         this.homeFragment = HomeFragment.newInstance()
-        this.dictionaryFragment = DictionaryFragment.newInstance()
+//        this.dictionaryFragment = DictionaryFragment.newInstance()
+        this.listDictionaryFragment = ListDictionaryFragment.newInstance()
+        this.aboutFragment = AboutFragment.newInstance()
+        this.settingsFragment = SettingsFragment.newInstance()
         this.activeFragment = this.homeFragment
         this.initiateFragment(this.homeFragment, "HOME")
-        this.initiateFragment(this.dictionaryFragment, "DICTIONARY")
+//        this.initiateFragment(this.dictionaryFragment, "DICTIONARY")
+        this.initiateFragment(this.listDictionaryFragment, "DICTIONARY")
+        this.initiateFragment(this.aboutFragment, "ABOUT")
+        this.initiateFragment(this.settingsFragment, "SETTINGS")
 
         //Create Custom ToolBar
         this.setSupportActionBar(this.binding.toolbar)
         this.supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        //Navigation Drawer
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        mDrawerToggle = ActionBarDrawerToggle(this, this.binding.drawerLayout, R.string.open, R.string.close)
+        this.binding.drawerLayout.addDrawerListener(mDrawerToggle)
+//        this.binding.drawerLayout.closeDrawers(Gravity.START)
+        mDrawerToggle.syncState()
+
+        this.binding.navHeaderview.setNavigationItemSelectedListener(this)
 
         //Observe Page state
         this.pageViewModel.getPage().observe(this, {
@@ -105,11 +139,48 @@ class MainActivity : CameraActivity(), OnImageAvailableListener {
             }
         }
 
+//        // Languages
+        val config = resources.configuration
+        val lang = "id" // your language code
+        val locale = Locale(lang)
+        Locale.setDefault(locale)
+        Log.d("bahasa main", Locale.getDefault().toString())
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            config.setLocale(locale)
+        else
+            config.locale = locale
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            createConfigurationContext(config)
+        resources.updateConfiguration(config, resources.displayMetrics)
+        this.createConfigurationContext(config)
+
+//        this.setContentView(R.layout.main)
+
         if (this.hasPermission()) {
             this.setFragment()
         } else {
             this.requestPermission()
         }
+    }
+
+    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        return mDrawerToggle.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        if (this.binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            this.binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+//        menuInflater.inflate(R.menu.main, menu)
+//        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 
     private fun initiateFragment(frag: Fragment, tag: String) {
@@ -131,10 +202,23 @@ class MainActivity : CameraActivity(), OnImageAvailableListener {
                 this.changeTitle("Home")
             }
             "DICTIONARY" -> {
-                ft.hide(activeFragment).show(this.dictionaryFragment).commit()
+                ft.hide(activeFragment).show(this.listDictionaryFragment).commit()
                 this.pageViewModel.changeProcessingStatus(false)
-                this.activeFragment = this.dictionaryFragment
+//                this.activeFragment = this.dictionaryFragment
+                this.activeFragment = this.listDictionaryFragment
                 this.changeTitle("Dictionary")
+            }
+            "ABOUT" -> {
+                ft.hide(activeFragment).show(this.aboutFragment).commit()
+                this.pageViewModel.changeProcessingStatus(false)
+                this.activeFragment = this.aboutFragment
+                this.changeTitle("About")
+            }
+            "SETTINGS" -> {
+                ft.hide(activeFragment).show(this.settingsFragment).commit()
+                this.pageViewModel.changeProcessingStatus(false)
+                this.activeFragment = this.settingsFragment
+                this.changeTitle("Settings")
             }
         }
 
@@ -316,5 +400,22 @@ class MainActivity : CameraActivity(), OnImageAvailableListener {
         private val DESIRED_PREVIEW_SIZE = Size(640, 480)
         private const val SAVE_PREVIEW_BITMAP = false
         private const val TEXT_SIZE_DIP = 10f
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.setting -> {
+                this.pageViewModel.changePage("SETTINGS")
+                true
+            }
+            R.id.about -> {
+                this.pageViewModel.changePage("ABOUT")
+                true
+            }
+            else -> true
+        }
+        this.binding.drawerLayout.closeDrawer(GravityCompat.START)
+
+        return true
     }
 }
