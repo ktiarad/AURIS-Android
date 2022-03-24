@@ -140,20 +140,20 @@ class MainActivity : CameraActivity(), OnImageAvailableListener,
         }
 
 //        // Languages
-        val config = resources.configuration
-        val lang = "id" // your language code
-        val locale = Locale(lang)
-        Locale.setDefault(locale)
-        Log.d("bahasa main", Locale.getDefault().toString())
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-            config.setLocale(locale)
-        else
-            config.locale = locale
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            createConfigurationContext(config)
-        resources.updateConfiguration(config, resources.displayMetrics)
-        this.createConfigurationContext(config)
+//        val config = resources.configuration
+//        val lang = "en" // your language code
+//        val locale = Locale(lang)
+//        Locale.setDefault(locale)
+//        Log.d("bahasa main", Locale.getDefault().toString())
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+//            config.setLocale(locale)
+//        else
+//            config.locale = locale
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+//            createConfigurationContext(config)
+//        resources.updateConfiguration(config, resources.displayMetrics)
+//        this.createConfigurationContext(config)
 
 //        this.setContentView(R.layout.main)
 
@@ -404,10 +404,10 @@ class MainActivity : CameraActivity(), OnImageAvailableListener,
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.setting -> {
-                this.pageViewModel.changePage("SETTINGS")
-                true
-            }
+//            R.id.setting -> {
+//                this.pageViewModel.changePage("SETTINGS")
+//                true
+//            }
             R.id.about -> {
                 this.pageViewModel.changePage("ABOUT")
                 true

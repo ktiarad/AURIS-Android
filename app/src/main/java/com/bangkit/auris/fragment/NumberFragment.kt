@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bangkit.auris.utils.DataDummy
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bangkit.auris.adapter.DataAdapter
 import com.bangkit.auris.databinding.FragmentNumberBinding
+import com.bangkit.auris.utils.DataDictionaries
 
 class NumberFragment : Fragment() {
 
@@ -26,9 +26,9 @@ class NumberFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null){
-            val library = DataDummy.generateDummyNumber()
+            val library = DataDictionaries.generateDictNumber()
             val dataAdapter = DataAdapter()
-            dataAdapter.setDataLibrary(library)
+//            dataAdapter.setDataLibrary(library)
 
             with(fragmentNumberBinding.rvNumber){
                 layoutManager = GridLayoutManager(context, 2)

@@ -35,9 +35,11 @@ class AutoFitTextureView @JvmOverloads constructor(context: Context, attrs: Attr
             setMeasuredDimension(width, height)
         } else {
             if (width < height * ratioWidth / ratioHeight) {
-                setMeasuredDimension(width, width * ratioHeight / ratioWidth)
+                setMeasuredDimension(width, height)
+//                setMeasuredDimension(width, width * ratioHeight / ratioWidth)
             } else {
-                setMeasuredDimension(height * ratioWidth / ratioHeight, height)
+                setMeasuredDimension(width, height)
+//                setMeasuredDimension(height * ratioWidth / ratioHeight, height)
             }
         }
     }

@@ -27,18 +27,20 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="instruction">Point The Camera To The Sign Language</string>
     <string name="welcome">Hi, Welcome To</string>
+
+
     <string name="translation_result">Translation Result Here</string>
     <string name="btn_processing_start">START</string>
     <string name="btn_processing_stop">STOP</string>
     <string name="camera_caution">Please click start button to start detections</string>
-    <string name="tv_about_descop">Auris 1.1<br />&#169;2021 Auris Team<br /><br />
-        This application was developed during <br />Capstone Project Bangkit, Kampus Merdeka 2021.<br /><br />
-    Developers :<br />
-    1. Juan Antonius Kusjadi<br />
-    2. Tiara Dewangga <br />
-    3. Evandio Martin <br />
-    4. Ayulia Putri Aisyah<br />
-    5. Alexander<br />
+    <string name="tv_about_descop">Auris 1.1 \n Auris Team &#169;2021 \n
+        This application was developed during \nCapstone Project Bangkit, Kampus Merdeka 2021.\n\n
+    Developers :\n
+    1. Juan Antonius Kusjadi\n
+    2. Tiara Dewangga \n
+    3. Evandio Martin \n
+    4. Ayulia Putri Aisyah\n
+    5. Alexander\n
     6. Fransiskus Xaverius Narautama</string>
     <string name="what">WHAT</string>
     <string name="who">WHO</string>
@@ -81,7 +83,7 @@
     <string name="dec">DECEMBER</string>
     <string name="i_word">I</string>
     <string name="you">YOU</string>
-    <string name="we">WE (without opponent)</string>
+    <string name="we">WE</string>
     <string name="we2">WE (with opponent)</string>
     <string name="youall">YOU ALL</string>
     <string name="heshe">HE/SHE</string>
@@ -150,6 +152,8 @@
     <string name="number_10">10</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
+    <string name="family_title">Family</string>
+    <string name="cheerful">CHEERFUL</string>
 
 
     <!-- DICTIONARIES -->
